@@ -28,7 +28,8 @@ module.exports = {
                   ogImage: article.urlToImage,
                   canonicalUrl: article.url,
                   ogUrl: article.url,
-                  category: category
+                  category: category,
+                  publishedOn: article.publishedAt
                 });
 
                 try {
