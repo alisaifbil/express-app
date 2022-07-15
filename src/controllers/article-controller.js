@@ -4,7 +4,7 @@ const Articles = require("../model/articles");
 const getAll = async (req, res) => {
     try {
         const data = await Articles.find();
-        res.json(data)
+        res.status(200).json(data)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
 const catTitle = async (req, res) => {
     try {
         const data = await Articles.findOne({category: req.params.category, metaTitle: req.params.metaTitle});
-        res.json(data)
+        res.status(200).json(data)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -26,7 +26,7 @@ const catTitle = async (req, res) => {
 const findByTitle = async (req, res) => {
     try {
         const data = await Articles.find({metaTitle: new RegExp(req.body.metaTitle, 'i') });
-        res.json(data)
+        res.status(200).json(data)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -39,7 +39,7 @@ const sortByProperty = async (req, res) => {
     let order = req.body.order;
     try {
         const data = await Articles.find({}).sort({[sortParam]: order});
-        res.json(data);
+        res.status(200).json(data);
     }
     catch (error) {
         res.status(500).json({ message: error.message })
