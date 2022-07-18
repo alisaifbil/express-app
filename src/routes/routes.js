@@ -14,4 +14,7 @@ router.get('/findByTitle', articleController.findByTitle);
 //Sort by Property Method
 router.get('/sortByProperty', articleController.sortByProperty);
 
+//Send Email Method
+router.post('/sendEmail', articleController.sendEmail);
+
 module.exports = router;

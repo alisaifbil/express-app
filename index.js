@@ -18,7 +18,7 @@ database.once('connected', () => {
 })
 
 const app = express();
-// app.use(cors())
+app.use(cors())
 app.use(express.json());
 
 const routes = require('./src/routes/routes');
