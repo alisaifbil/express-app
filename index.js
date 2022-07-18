@@ -18,7 +18,13 @@ database.once('connected', () => {
 })
 
 const app = express();
-app.use(cors())
+app.use(cors());
+app.use(function(req, res, next){
+res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("content-type", "application/json")
+res.setHeader("Access-Control-Allow-Headers", "x-csrf-token, content-type")
+next()
+});
 app.use(express.json());
 
 const routes = require('./src/routes/routes');
